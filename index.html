@@ -172,9 +172,23 @@
                         }
                   });
             });
+
+            document.querySelector('form').addEventListener('submit', function (event) {
+                  const inputs = document.querySelectorAll('input[type="number"]');
+                  let hasValidTicket = false;
+
+                  inputs.forEach(input => {
+                        if (parseInt(input.value) > 0) {
+                              hasValidTicket = true;
+                        }
+                  });
+
+                  if (!hasValidTicket) {
+                        event.preventDefault(); // منع إرسال النموذج
+                        alert('من فضلك اختر على الأقل تذكرة واحدة قبل الحجز.');
+                  }
+            });
       </script>
-
-
 </body>
 
 
