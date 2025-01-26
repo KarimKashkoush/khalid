@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="style.css">
+      <!-- Font Awesome -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+</head>
+
+<body>
+      <!-- Start Header -->
+      <header>
+            <section class="container">
+                  <section class="back-page">
+                        <a href="#">
+                              <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                  </section>
+
+                  <section class="logo">
+                        <h3>Abadi Al Johar & Ayed</h3>
+                  </section>
+
+                  <section class="share">
+                        <a href="#">
+                              <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                        </a>
+                  </section>
+            </section>
+      </header>
+      <!-- End Header -->
+
+      <!-- Start Chose Date -->
+      <section class="chose-date">
+            <section class="container" id="chose-date">
+                  <section class="date">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        الخميس، 5 فبراير - 9:30م
+                  </section>
+
+                  <section class="hidden">
+                        <section class="hidden-top">
+                              <p>إختر العرض</p>
+                              <button id="close-chose-date"><i class="fa-solid fa-xmark"></i></button>
+                        </section>
+                        <section class="hidden-content">
+                              <section class="chose-date">
+                                    <span>الخميس</span>
+                                    <p>5</p>
+                                    <span>فبراير</span>
+                              </section>
+                              <section class="time">
+                                    <p>9:30م</p>
+                                    <span>تفتح الأبواب الساعة 8:00 مساءً</span>
+                              </section>
+                              <section class="arrow">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                              </section>
+                        </section>
+                  </section>
+            </section>
+      </section>
+      <!-- Start Chose Date -->
+
+      <!-- Start Main Section -->
+      <section class="main">
+            <section class="registering">
+                  <form>
+                        <table 
+                              style="width: 100%; text-align: center; border-collapse: collapse;">
+                              <thead>
+                                    <tr>
+                                          <th>الرمز</th>
+                                          <th>الفئة</th>
+                                          <th>السعر</th>
+                                          <th>الكمية</th>
+                                    </tr>
+                              </thead>
+                              <tbody>
+                                    <tr>
+                                          <td><i class="fa-solid fa-circle" style="color: #0D47A1;"></i></td>
+                                          <td>Daimond</td>
+                                          <td>120د.ك</td>
+                                          <td><input type="number" min="0"></td>
+                                    </tr>
+                                    <tr>
+                                          <td><i class="fa-solid fa-circle" style="color: #7B1FA2;"></i></td>
+                                          <td>Platinum</td>
+                                          <td>120د.ك</td>
+                                          <td><input type="number" min="0"></td>
+                                    </tr>
+                                    <tr>
+                                          <td><i class="fa-solid fa-circle" style="color: #FBC02D;"></i></td>
+                                          <td>Gold</td>
+                                          <td>120د.ك</td>
+                                          <td><input type="number" min="0"></td>
+                                    </tr>
+                                    <tr>
+                                          <td><i class="fa-solid fa-circle" style="color: #455A64;"></i></td>
+                                          <td>Sliver</td>
+                                          <td>120د.ك</td>
+                                          <td><input type="number" min="0"></td>
+                                    </tr>
+                                    <tr>
+                                          <td><i class="fa-solid fa-circle" style="color: #FF6F00;"></i></td>
+                                          <td>Bronze</td>
+                                          <td>120د.ك</td>
+                                          <td><input type="number" min="0"></td>
+                                    </tr>
+                                    <tr>
+                                          <td><i class="fa-solid fa-circle" style="color: #689F38;"></i></td>
+                                          <td>Royal</td>
+                                          <td>120د.ك</td>
+                                          <td><input type="number" min="0"></td>
+                                    </tr>
+                                    <tr>
+                                          <td><i class="fa-solid fa-circle" style="color: #0D47A1;"></i></td>
+                                          <td>ذوي الاحتياجات الخاصة (مع كرسي متحرك) + مقعد واحد مجاني، يرجي الاتصال
+                                                بمكتب التذاكر للحجز</td>
+                                          <td>120د.ك</td>
+                                          <td><input type="number" min="0"></td>
+                                    </tr>
+                              </tbody>
+                        </table>
+                        
+                        <button>احجز الأن</button>
+                  </form>
+            </section>
+            <section class="image">
+                  <img src="Screenshot 2025-01-26 175431.png" alt="image">
+            </section>
+      </section>
+      <!-- End Main Section -->
+
+      <script>
+            let choseDate = document.getElementById('chose-date');
+            let hidden = document.querySelector('.hidden');
+            let body = document.body;
+
+            choseDate.addEventListener('click', () => {
+                  hidden.style.display = 'block';
+                  body.classList.add('body-bg');
+            });
+
+            let closeChoseDate = document.getElementById('close-chose-date');
+            closeChoseDate.addEventListener('click', () => {
+                  hidden.style.display = 'none';
+                  body.classList.remove('body-bg');
+            });
+
+      </script>
+</body>
+
+
+
+</html>
