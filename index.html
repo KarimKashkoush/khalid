@@ -37,31 +37,10 @@
 
       <!-- Start Chose Date -->
       <section class="chose-date">
-            <section class="container" id="chose-date">
+            <section class="container">
                   <section class="date">
                         <i class="fa-solid fa-calendar-days"></i>
                         الخميس، 5 فبراير - 9:30م
-                  </section>
-
-                  <section class="hidden">
-                        <section class="hidden-top">
-                              <p>إختر العرض</p>
-                              <button id="close-chose-date"><i class="fa-solid fa-xmark"></i></button>
-                        </section>
-                        <section class="hidden-content">
-                              <section class="chose-date">
-                                    <span>الخميس</span>
-                                    <p>5</p>
-                                    <span>فبراير</span>
-                              </section>
-                              <section class="time">
-                                    <p>9:30م</p>
-                                    <span>تفتح الأبواب الساعة 8:00 مساءً</span>
-                              </section>
-                              <section class="arrow">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                              </section>
-                        </section>
                   </section>
             </section>
       </section>
@@ -71,8 +50,7 @@
       <section class="main">
             <section class="registering">
                   <form>
-                        <table 
-                              style="width: 100%; text-align: center; border-collapse: collapse;">
+                        <table style="width: 100%; text-align: center; border-collapse: collapse;">
                               <thead>
                                     <tr>
                                           <th>الرمز</th>
@@ -86,48 +64,90 @@
                                           <td><i class="fa-solid fa-circle" style="color: #0D47A1;"></i></td>
                                           <td>Daimond</td>
                                           <td>120د.ك</td>
-                                          <td><input type="number" min="0"></td>
+                                          <td>
+                                                <div class="quantity-control">
+                                                      <button type="button" class="decrement">-</button>
+                                                      <input type="number" min="0" value="0">
+                                                      <button type="button" class="increment">+</button>
+                                                </div>
+                                          </td>
                                     </tr>
                                     <tr>
                                           <td><i class="fa-solid fa-circle" style="color: #7B1FA2;"></i></td>
                                           <td>Platinum</td>
                                           <td>120د.ك</td>
-                                          <td><input type="number" min="0"></td>
+                                          <td>
+                                                <div class="quantity-control">
+                                                      <button type="button" class="decrement">-</button>
+                                                      <input type="number" min="0" value="0">
+                                                      <button type="button" class="increment">+</button>
+                                                </div>
+                                          </td>
                                     </tr>
                                     <tr>
                                           <td><i class="fa-solid fa-circle" style="color: #FBC02D;"></i></td>
                                           <td>Gold</td>
                                           <td>120د.ك</td>
-                                          <td><input type="number" min="0"></td>
+                                          <td>
+                                                <div class="quantity-control">
+                                                      <button type="button" class="decrement">-</button>
+                                                      <input type="number" min="0" value="0">
+                                                      <button type="button" class="increment">+</button>
+                                                </div>
+                                          </td>
                                     </tr>
                                     <tr>
                                           <td><i class="fa-solid fa-circle" style="color: #455A64;"></i></td>
                                           <td>Sliver</td>
                                           <td>120د.ك</td>
-                                          <td><input type="number" min="0"></td>
+                                          <td>
+                                                <div class="quantity-control">
+                                                      <button type="button" class="decrement">-</button>
+                                                      <input type="number" min="0" value="0">
+                                                      <button type="button" class="increment">+</button>
+                                                </div>
+                                          </td>
                                     </tr>
                                     <tr>
                                           <td><i class="fa-solid fa-circle" style="color: #FF6F00;"></i></td>
                                           <td>Bronze</td>
                                           <td>120د.ك</td>
-                                          <td><input type="number" min="0"></td>
+                                          <td>
+                                                <div class="quantity-control">
+                                                      <button type="button" class="decrement">-</button>
+                                                      <input type="number" min="0" value="0">
+                                                      <button type="button" class="increment">+</button>
+                                                </div>
+                                          </td>
                                     </tr>
                                     <tr>
                                           <td><i class="fa-solid fa-circle" style="color: #689F38;"></i></td>
                                           <td>Royal</td>
                                           <td>120د.ك</td>
-                                          <td><input type="number" min="0"></td>
+                                          <td>
+                                                <div class="quantity-control">
+                                                      <button type="button" class="decrement">-</button>
+                                                      <input type="number" min="0" value="0">
+                                                      <button type="button" class="increment">+</button>
+                                                </div>
+                                          </td>
                                     </tr>
                                     <tr>
                                           <td><i class="fa-solid fa-circle" style="color: #0D47A1;"></i></td>
                                           <td>ذوي الاحتياجات الخاصة (مع كرسي متحرك) + مقعد واحد مجاني، يرجي الاتصال
                                                 بمكتب التذاكر للحجز</td>
                                           <td>120د.ك</td>
-                                          <td><input type="number" min="0"></td>
+                                          <td>
+                                                <div class="quantity-control">
+                                                      <button type="button" class="decrement">-</button>
+                                                      <input type="number" min="0" value="0">
+                                                      <button type="button" class="increment">+</button>
+                                                </div>
+                                          </td>
                                     </tr>
                               </tbody>
                         </table>
-                        
+
                         <button>احجز الأن</button>
                   </form>
             </section>
@@ -136,24 +156,25 @@
             </section>
       </section>
       <!-- End Main Section -->
-
       <script>
-            let choseDate = document.getElementById('chose-date');
-            let hidden = document.querySelector('.hidden');
-            let body = document.body;
+            document.querySelectorAll('.quantity-control').forEach(control => {
+                  const input = control.querySelector('input');
+                  const increment = control.querySelector('.increment');
+                  const decrement = control.querySelector('.decrement');
 
-            choseDate.addEventListener('click', () => {
-                  hidden.style.display = 'block';
-                  body.classList.add('body-bg');
+                  increment.addEventListener('click', () => {
+                        input.value = parseInt(input.value || 0) + 1;
+                  });
+
+                  decrement.addEventListener('click', () => {
+                        if (parseInt(input.value || 0) > 0) {
+                              input.value = parseInt(input.value || 0) - 1;
+                        }
+                  });
             });
-
-            let closeChoseDate = document.getElementById('close-chose-date');
-            closeChoseDate.addEventListener('click', () => {
-                  hidden.style.display = 'none';
-                  body.classList.remove('body-bg');
-            });
-
       </script>
+
+
 </body>
 
 
