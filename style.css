@@ -1,9 +1,11 @@
 :root {
       --main-color: #1D439A;
+      --sub-color: rgb(12, 177, 237);
       --w-color: #fff;
       --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
       --transition: 0.3s;
       --border: 1px solid #00000096;
+      --text-color: rgb(73, 80, 87);
 }
 
 * {
@@ -35,13 +37,25 @@ a {
       margin: 0 auto;
 }
 
+input {
+      padding: 10px;
+      min-width: 300px;
+      border: var(--border);
+      outline: none;
+      direction: rtl;
+      font-family: "Cairo", serif;
+      font-weight: 600;
+      font-size: 14px;
+}
+
+button {
+      font-family: "Cairo", serif;
+      font-weight: 700;
+}
+
 /* Start Header */
 header {
-      position: fixed;
       padding: 15px 0;
-      top: 0;
-      right: 0;
-      width: 100%;
       background-color: var(--main-color);
 
       .container {
@@ -80,10 +94,6 @@ header {
 
 /* Start Chose Date */
 .chose-date {
-      position: fixed;
-      top: 70px;
-      right: 0;
-      width: 100%;
       padding: 10px 0;
       background-color: var(--w-color);
       box-shadow: var(--box-shadow);
@@ -176,7 +186,6 @@ header {
       }
 }
 
-/* إخفاء الأسهم الافتراضية الخاصة بـ input */
 input[type="number"] {
       -moz-appearance: textfield;
       /* لإخفاء الأسهم في فايرفوكس */
@@ -191,7 +200,6 @@ input[type="number"] {
       padding: 5px;
 }
 
-/* أزرار التحكم */
 .quantity-control {
       display: flex;
       align-items: center;
@@ -222,3 +230,148 @@ input[type="number"] {
       background-color: #d6d6d6;
       color: var(--main-color);
 }
+
+/* Start Timer */
+.timer {
+      background-color: var(--sub-color);
+      color: var(--w-color);
+      text-align: center;
+      padding: 10px 0;
+
+      .container {
+            h2 {
+                  font-size: 14px;
+            }
+
+            p {
+                  font-size: 20px;
+                  font-weight: 700;
+            }
+      }
+}
+
+/* End Timer */
+
+/* Start Personal-Details */
+.personal-details {
+      margin: 20px;
+
+      .container {
+            box-shadow: var(--box-shadow);
+            border-radius: 10px;
+            padding: 10px 15px;
+
+            h3 {
+                  font-weight: 600;
+            }
+
+            p {
+                  font-weight: 600;
+                  color: var(--text-color);
+            }
+
+            span {
+                  font-weight: 600;
+            }
+      }
+}
+
+/* End Personal-Details */
+
+/* Start Form-Details */
+.form-details {
+      margin: 20px;
+
+      .container {
+            box-shadow: var(--box-shadow);
+            border-radius: 10px;
+            padding: 10px 15px;
+            color: var(--text-color);
+
+            .form-details-header {
+                  font-size: 18px;
+                  margin-bottom: 15px;
+            }
+
+            form {
+                  .input-control {
+                        margin-bottom: 10px;
+
+                        label {
+                              font-size: 16px;
+                              display: block;
+                              line-height: 1.6;
+                        }
+                  }
+
+                  .conditions {
+                        margin-top: 30px;
+                        padding-top: 10px;
+                        border-top: var(--border);
+
+                        p {
+                              font-size: 18px;
+                              font-weight: 600;
+                        }
+
+                        span {
+                              font-weight: 600;
+                        }
+
+                        .all-condition {
+                              margin-block: 10px;
+                              background-color: #edecec;
+                              padding: 8px 15px;
+                              border-radius: 3px;
+
+                              p {
+                                    font-weight: 700;
+                                    font-size: 20px;
+                                    margin-bottom: 3px;
+                              }
+
+                              ul {
+                                    margin-right: 25px;
+                                    height: 150px;
+                                    overflow-y: scroll;
+
+                                    li {
+                                          margin-bottom: 5px;
+                                    }
+                              }
+                        }
+
+                        .terms-conditions-checkbox {
+                              display: flex;
+                              align-items: center;
+
+                              label {
+                                    display: inline;
+                              }
+
+                              input {
+                                    min-width: 20px;
+                                    display: inline;
+                              }
+
+                              margin-bottom: 10px;
+                        }
+                  }
+
+                  button {
+                        background-color: var(--main-color);
+                        border: none;
+                        outline: none;
+                        padding: 10px;
+                        cursor: pointer;
+                        width: 150px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        color: var(--w-color);
+                  }
+            }
+      }
+}
+
+/* End Form-Details */
