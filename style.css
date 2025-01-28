@@ -39,7 +39,6 @@ a {
 
 input {
       padding: 10px;
-      width: 300px;
       border: var(--border);
       outline: none;
       direction: rtl;
@@ -297,6 +296,11 @@ input[type="number"] {
                   .input-control {
                         margin-bottom: 10px;
 
+                        input {
+                              width: 300px;
+                              max-width: calc(100% - 20px);
+                        }
+
                         label {
                               font-size: 16px;
                               display: block;
@@ -351,6 +355,7 @@ input[type="number"] {
 
                               input {
                                     min-width: 20px;
+                                    max-width: 20%;
                                     display: inline;
                               }
 
@@ -513,8 +518,8 @@ input[type="number"] {
                               text-align: center;
                               display: block;
                               direction: ltr;
-                              width: 280px;
-                              max-width: 100%;
+                              width: 300px;
+                              max-width: calc(300px - 20px);
                               margin: auto;
                         }
 
@@ -524,7 +529,7 @@ input[type="number"] {
                               padding: 10px;
                               width: 320px;
                               max-width: 100%;
-                              background-color: rgba(195, 195, 61, 0.571);
+                              background-color: hsl(133.7 61.4% 40.6% / 1);
                               cursor: pointer;
                         }
                   }
