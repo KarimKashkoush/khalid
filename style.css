@@ -279,7 +279,7 @@ input[type="number"] {
 
 /* Start Form-Details */
 .form-details {
-      padding-bottom: 50px;
+      margin-bottom: 50px;
       .container {
             margin: 20px;
             box-shadow: var(--box-shadow);
