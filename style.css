@@ -606,21 +606,6 @@ input[type="number"] {
                   }
 
                   nav {
-                        .close-nav {
-                              cursor: pointer;
-                              background-color: transparent;
-                              border: none;
-                              outline: none;
-                              position: absolute;
-                              top: 15px;
-                              left: 15px;
-                              display: none;
-
-                              i {
-                                    color: var(--w-color);
-                                    font-size: 25px;
-                              }
-                        }
 
                         ul {
                               display: flex;
@@ -707,6 +692,10 @@ input[type="number"] {
             left: 50%;
             transform: translate(-50%);
 
+            .close-nav {
+                  display: none;
+            }
+
             .container {
                   display: flex;
                   justify-content: center;
@@ -785,6 +774,7 @@ input[type="number"] {
                   transition: var(--transition-3);
 
                   .close-nav {
+                        display: block;
                         position: absolute;
                         background-color: transparent;
                         border: none;
