@@ -546,7 +546,8 @@ input[type="number"] {
 /* End Payment-timer */
 
 /* Start Main-Page */
-.main-page {
+.main-page,
+.ticket {
       background-color: #000;
       color: var(--w-color);
       overflow: hidden;
@@ -650,7 +651,7 @@ input[type="number"] {
                         }
                   }
 
-                  @media (max-width: 768px) {
+                  @media (max-width: 1200px) {
 
                         .nav-button,
                         .hide {
@@ -691,6 +692,7 @@ input[type="number"] {
             top: 107px;
             left: 50%;
             transform: translate(-50%);
+            height: 80px;
 
             .close-nav {
                   display: none;
@@ -727,7 +729,7 @@ input[type="number"] {
 
                   ul {
                         border-top: 2px solid transparent;
-                        background-color: #0000008b;
+                        background-color: transparent;
                         width: 150px;
                         display: flex;
                         gap: 15px;
@@ -735,6 +737,7 @@ input[type="number"] {
                         max-height: 0;
                         transition: var(--transition-3);
                         overflow: hidden;
+
 
                         li a {
                               transition: var(--transition);
@@ -748,6 +751,8 @@ input[type="number"] {
                   .link.active ul {
                         max-height: 100%;
                         width: 100%;
+                        padding: 10px;
+                        background-color: #0000008b;
                   }
 
 
@@ -763,7 +768,7 @@ input[type="number"] {
             }
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 1200px) {
             .subheader {
                   display: flex;
                   top: 130%;
@@ -782,6 +787,7 @@ input[type="number"] {
                         cursor: pointer;
                         top: 15px;
                         left: 15px;
+
                         i {
                               font-size: 22px;
                         }
@@ -1077,5 +1083,154 @@ input[type="number"] {
       }
 }
 
+.ticket {
+      header {
+            background-color: var(--main-color);
+      }
 
+      .subheader {
+            background-color: var(--main-color);
+      }
+
+      .main {
+            padding-block: var(--p-100);
+            color: #000;
+            background-color: var(--w-color);
+
+            .container {
+                  .ticket-details {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: start;
+                        gap: 30px;
+                        margin-bottom: 50px;
+
+                        .event-details {
+                              img {
+                                    width: 750px;
+                                    max-width: 100%;
+                              }
+
+                              h2 {
+                                    font-size: 32px;
+                                    margin-bottom: 50px;
+                                    font-weight: 700;
+                              }
+                        }
+
+                        .tikect-date {
+                              position: sticky;
+                              top: 20px;
+                              padding: 15px;
+                              background-color: var(--main-color);
+                              color: var(--w-color);
+                              width: 350px;
+
+                              h2 {
+                                    font-size: 28px;
+                                    padding-bottom: 15px;
+                                    border-bottom: 2px solid #fecd00;
+                                    text-align: center;
+                              }
+
+                              >p {
+                                    padding-block: 15px 5px;
+
+                                    border-top: 15px;
+                                    text-align: center;
+                              }
+
+                              .date {
+                                    background-color: #000;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+
+                                    .date-content {
+                                          padding-right: 10px;
+                                    }
+
+                                    a {
+                                          color: #000;
+                                          background-color: #fecd00;
+                                          width: 80px;
+                                          height: 80px;
+                                          text-align: center;
+                                          display: flex;
+                                          justify-content: center;
+                                          align-items: center;
+                                          font-size: 16px;
+                                          font-weight: 700;
+                                    }
+                              }
+                        }
+                  }
+
+                  @media (max-width:1000px) {
+                        .ticket-details  {
+                              flex-direction: column;
+                              .tikect-date {
+                                    width: 100%;
+                              }
+                        }
+                  }
+
+                  .event-time {
+                        h2 {
+                              color: var(--main-color);
+                              font-size: 30px;
+                              margin-bottom: 10px;
+                        }
+
+                        ul {
+                              padding-block: 20px;
+                              padding-right: 30px;
+                              list-style: disc;
+                        }
+
+                        p {
+                              font-weight: 700;
+                              span {
+                                    font-weight: 600;
+                              }
+                        }
+
+                        p:last-child {    
+                              margin-bottom: 50px;
+                        }
+                  }
+
+                  .coditions {
+                        background-color: var(--main-color);
+                        padding: 15px;
+                        margin-bottom: 20px;
+                        height: 63px;
+                        overflow: hidden;
+                        transition: var(--transition-3);
+
+                        .conditions-header {
+                              display: flex;
+                              justify-content: space-between;
+                              align-items: center;
+                              color: var(--w-color);
+                              margin-bottom: 15px;
+                              cursor: pointer;
+
+                              h2 {
+                                    font-size: 18px;
+                              }
+                        }
+
+                        ul {
+                              list-style: disc;
+                              padding: 10px 30px;
+                              background-color: var(--w-color);
+                              li {
+                                    margin-bottom: 5px;
+                              }
+                        }
+                  }
+            }
+      }
+}
 /* End Main-Page */
