@@ -8,6 +8,7 @@
       --text-color: rgb(73, 80, 87);
       --transition-3: 0.3s;
       --p-100: 100px;
+      --p-50: 50px;
 }
 
 * {
@@ -546,7 +547,8 @@ input[type="number"] {
 
 /* Start Main-Page */
 .main-page,
-.ticket {
+.ticket,
+.note {
       background-color: #000;
       color: var(--w-color);
       overflow: hidden;
@@ -684,7 +686,7 @@ input[type="number"] {
       }
 
       .subheader {
-            transition: 1s all ;
+            transition: 1s all;
             padding-top: 15px;
             position: absolute;
             width: 100%;
@@ -1090,7 +1092,8 @@ input[type="number"] {
       }
 }
 
-.ticket {
+.ticket,
+.note {
       header {
             background-color: var(--main-color);
       }
@@ -1240,5 +1243,58 @@ input[type="number"] {
             }
       }
 }
+
+.note {
+      background-color: var(--w-color);
+
+      .notes {
+            padding-top: var(--p-50);
+
+            .container {
+                  color: #000;
+
+                  h2 {
+                        color: var(--main-color);
+                        margin-bottom: 15px;
+                        font-weight: 700;
+                  }
+
+                  span {
+                        display: block;
+                        line-height: 1.6;
+                        margin-bottom: 20px;
+                        font-weight: 600;
+                  }
+
+                  p {
+                        font-weight: 700;
+                  }
+            }
+      }
+
+      .slides {
+            height: 100%;
+
+            .slides-content {
+                  height: 100%;
+
+                  .swiper.mySwiper {
+                        .swiper-wrapper {
+                              .swiper-slide {
+                                    &::after {
+                                          background-color: transparent;
+                                    }
+                              }
+                        }
+                  }
+            }
+      }
+
+      footer {
+            background-color: #000;
+      }
+}
+
+
 
 /* End Main-Page */
