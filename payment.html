@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>الدفع</title>
+      <link rel="stylesheet" href="style.css">
+      <!-- Font Awesome -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+</head>
+
+<body>
+      <!-- Start Header -->
+      <section class="payment-header">
+            <section class="container">
+                  <p>الدفع</p>
+            </section>
+      </section>
+      <!-- End Header -->
+
+      <!-- Start Payment-timer -->
+      <section class="payment-details">
+            <section class="container">
+                  <section class="payment-timer">
+                        <p>الوقت المتبقي</p>
+                        <p><span id="countdown"></span></p>
+                        <p>يرجي إكمال الحجز والدفع قبل انتهاء الوقت</p>
+                  </section>
+
+                  <section class="personal-details-payment">
+                        <p>Abadi Al Johar & Ayed</p>
+                        <p>الخميس 6 فبراير - 9:30م <span>( تفتح الأبواب الساعة 8:00 مساءً )</span></p>
+                  </section>
+
+                  <section class="table-details">
+                        <h3>الأرينا كويت</h3>
+
+                        <table>
+                              <thead>
+                                    <tr>
+                                          <th>التذكرة</th>
+                                          <th>مقعد</th>
+                                          <th>سطر</th>
+                                          <th>قسم</th>
+                                          <th>عدد</th>
+                                          <th>السعر</th>
+                                    </tr>
+                              </thead>
+                              <tbody>
+                                    <tr>
+                                          <td>Royal</td>
+                                          <td>14</td>
+                                          <td>1</td>
+                                          <td>103</td>
+                                          <td>2</td>
+                                          <td>120 د.ك</td>
+                                    </tr>
+                                    <tr>
+                                          <td>Royal</td>
+                                          <td>14</td>
+                                          <td>1</td>
+                                          <td>103</td>
+                                          <td>2</td>
+                                          <td>120 د.ك</td>
+                                    </tr>
+                                    <tr>
+                                          <td>Royal</td>
+                                          <td>14</td>
+                                          <td>1</td>
+                                          <td>103</td>
+                                          <td>2</td>
+                                          <td>120 د.ك</td>
+                                    </tr>
+                                    <tr>
+                                          <th colspan="3">المجموع</th>
+                                          <td colspan="3">400 د.ك</td>
+                                    </tr>
+                              </tbody>
+                        </table>
+
+                  </section>
+
+                  <section class="card-details">
+                              <p>ادخل معلومات بطاقتك الائتمانية</p>
+
+                              <form action="">
+                                    <section class="input-control">
+                                          <label for="card-number">رقم البطاقة <img width="70px" src="https://www.taktickets-thearenakuwait.com/assets/img/visamc.png" alt=""></label>
+                                          <input type="text" id="card-number" placeholder="xxxx xxxx xxxx xxxx"
+                                                maxlength="19" oninput="formatCardNumber(this)" required>
+                                    </section>
+                                    <section class="input-control">
+                                          <label for="expiry-date">تاريخ الانتهاء</label>
+                                          <input type="text" id="expiry-date" placeholder="MM/YY" maxlength="5"
+                                                oninput="formatExpiryDate(this)" required>
+                                    </section>
+                                    <section class="input-control">
+                                          <label for="cvv">CVV</label>
+                                          <input type="text" id="cvv" placeholder="xxx" maxlength="3"
+                                                oninput="formatCVV(this)" required>
+                                    </section>
+                                    <button type="submit">ادفع الأن</button>
+                              </form>
+                  </section>
+            </section>
+      </section>
+      <!-- End Payment-timer -->
+
+
+      <script>
+            var timeLeft = 9 * 60;
+
+            function updateCountdown() {
+                  var minutes = Math.floor(timeLeft / 60);
+                  var seconds = timeLeft % 60;
+
+                  document.getElementById("countdown").textContent =
+                        (minutes < 10 ? "0" + minutes : minutes) + ":" +
+                        (seconds < 10 ? "0" + seconds : seconds);
+
+                  if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        alert("انتهى الوقت!");
+                  } else {
+                        timeLeft--;
+                  }
+            }
+
+            var timer = setInterval(updateCountdown, 1000);
+
+            function formatCardNumber(input) {
+                  let value = input.value.replace(/\D/g, '');
+
+                  value = value.replace(/(.{4})(?=.)/g, '$1 ');
+
+                  input.value = value.substring(0, 19);
+            }
+
+            function formatExpiryDate(input) {
+                  let value = input.value.replace(/\D/g, '');
+
+                  if (value.length > 2) {
+                        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                  }
+
+                  input.value = value.substring(0, 5);
+            }
+
+            function formatCVV(input) {
+                  let value = input.value.replace(/\D/g, '');
+                  input.value = value.substring(0, 3);
+            }
+      </script>
+</body>
+
+</html>
