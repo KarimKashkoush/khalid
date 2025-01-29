@@ -579,12 +579,12 @@ input[type="number"] {
             background-color: transparent;
             min-height: 77px;
 
-
             .container {
                   .hide {
                         display: none;
                         align-items: center;
                         gap: 15px;
+
                         a {
                               color: #000;
                               padding: 5px 15px;
@@ -593,6 +593,7 @@ input[type="number"] {
                               font-weight: 700;
                         }
                   }
+
                   color: var(--w-color);
                   display: flex;
                   align-items: center;
@@ -632,7 +633,6 @@ input[type="number"] {
                                     align-items: center;
                               }
 
-
                               li a {
                                     color: var(--w-color);
                                     font-size: 18px;
@@ -659,7 +659,6 @@ input[type="number"] {
                         display: none;
                         cursor: pointer;
 
-
                         i {
                               font-size: 25px;
                               color: var(--w-color);
@@ -668,7 +667,8 @@ input[type="number"] {
 
                   @media (max-width: 768px) {
 
-                        .nav-button, .hide {
+                        .nav-button,
+                        .hide {
                               display: flex;
                         }
 
@@ -713,6 +713,16 @@ input[type="number"] {
                   flex-wrap: wrap;
                   gap: 15px;
 
+                  .link>section {
+                        display: flex;
+                        cursor: pointer;
+                        transition: var(--transition-3);
+
+                        &:hover {
+                              color: #fecd00;
+                        }
+                  }
+
                   a {
                         color: var(--w-color);
                         display: flex;
@@ -733,7 +743,7 @@ input[type="number"] {
                         display: flex;
                         gap: 15px;
                         flex-direction: column;
-                        height: 0;
+                        max-height: 0;
                         transition: var(--transition-3);
                         overflow: hidden;
 
@@ -746,20 +756,57 @@ input[type="number"] {
                         }
                   }
 
-                  .link a:hover+ul,
-                  ul:hover {
-                        height: 100%;
-                        padding: 10px;
-                        border-color: #fecd00;
+                  .link.active ul {
+                        max-height: 100%;
+                        width: 100%;
                   }
 
-                  .link:last-child {
+
+                  >.link:last-child {
                         a {
                               color: #000;
                               padding: 5px 15px;
                               background-color: #fecd00;
                               cursor: pointer;
                               font-weight: 700;
+                        }
+                  }
+            }
+      }
+
+      @media (max-width: 768px) {
+            .subheader {
+                  display: flex;
+                  top: 130%;
+                  width: 100%;
+                  height: 100vh;
+                  background-color: #000;
+                  z-index: 10;
+                  transition: var(--transition-3);
+
+                  .close-nav {
+                        position: absolute;
+                        background-color: transparent;
+                        border: none;
+                        color: var(--w-color);
+                        cursor: pointer;
+                        top: 15px;
+                        left: 15px;
+                        i {
+                              font-size: 22px;
+                        }
+                  }
+
+                  .container {
+                        width: 100%;
+                        flex-direction: column;
+
+                        .link>section {
+                              justify-content: space-between;
+                        }
+
+                        >.link:last-child {
+                              display: none;
                         }
                   }
             }

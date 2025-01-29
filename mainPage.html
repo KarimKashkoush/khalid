@@ -26,9 +26,6 @@
                         </section>
 
                         <nav>
-                              <button class="close-nav">
-                                    <i class="fa-regular fa-circle-xmark"></i>
-                              </button>
                               <ul>
                                     <li>
                                           <a href="#">المزيد</a>
@@ -75,9 +72,14 @@
             </header>
 
             <section class="subheader">
+                  <button class="close-nav">
+                        <i class="fa-regular fa-circle-xmark"></i>
+                  </button>
                   <section class="container">
                         <section class="link">
-                              <a href="#">خطط لزيارتك <i class="fa-solid fa-sort-down"></i></a>
+                              <section>
+                                    خطط لزيارتك <i class="fa-solid fa-sort-down"></i>
+                              </section>
                               <ul>
                                     <li><a href="#">الوصول الينا</a></li>
                                     <li><a href="#">مكتب التذاكر</a></li>
@@ -90,7 +92,7 @@
                         </section>
 
                         <section class="link">
-                              <a href="#">إقامة الفعاليات <i class="fa-solid fa-sort-down"></i></a>
+                              <section>إقامة الفعاليات <i class="fa-solid fa-sort-down"></i></section>
                               <ul>
                                     <li><a href="#">المزايا والفعاليات</a></li>
                                     <li><a href="#">إعداد تجهيز الأرينا</a></li>
@@ -110,6 +112,16 @@
                               <a href="#">عرض جراند جياة الكويت</a>
                         </section>
 
+                        <section>
+                              <section class="link">
+                                    <a href="#">معلومات عنا</a>
+                              </section>
+
+                              <section class="link">
+                                    <a href="#">اتصل بنا</a>
+                              </section>
+                        </section>
+
                         <section class="link">
                               <a href="#">فعاليتنا</a>
                         </section>
@@ -121,22 +133,12 @@
                         <div class="swiper mySwiper">
                               <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                          <img src="https://thearenakuwait.com/assets/site/images/_eventListing/800X610-Adam-Mutref-2.jpg"
+                                          <img src="WhatsApp Image 2025-01-29 at 3.12.24 PM.jpeg"
                                                 alt="image">
                                           <a href="#">التذاكر</a>
                                     </div>
                                     <div class="swiper-slide">
-                                          <img src="https://thearenakuwait.com/assets/site/images/_eventListing/800X610-Adam-Mutref-2.jpg"
-                                                alt="image">
-                                          <a href="#">التذاكر</a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                          <img src="https://thearenakuwait.com/assets/site/images/_eventListing/800X610-Adam-Mutref-2.jpg"
-                                                alt="image">
-                                          <a href="#">التذاكر</a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                          <img src="https://thearenakuwait.com/assets/site/images/_eventListing/800X610-Adam-Mutref-2.jpg"
+                                          <img src="WhatsApp Image 2025-01-29 at 3.12.30 PM.jpeg"
                                                 alt="image">
                                           <a href="#">التذاكر</a>
                                     </div>
@@ -331,35 +333,60 @@
 
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
       <script>
+
             document.addEventListener("DOMContentLoaded", function () {
-                  const nav = document.querySelector("nav");
-                  const openNavBtn = document.querySelector(".nav-button");
-                  const closeNavBtn = document.querySelector(".close-nav");
-                  const navLinks = document.querySelectorAll("nav ul li a");
+                  const subheader = document.querySelector(".subheader");
+                  const closeNav = document.querySelector(".close-nav");
+                  const openNav = document.querySelector(".nav-button");
 
-                  openNavBtn.addEventListener("click", function () {
-                        nav.style.top = "0"; // عرض الناف بار
+                  closeNav.addEventListener("click", function () {
+                        subheader.style.top = "-130%"; // إخفاء القائمة
                   });
 
-                  closeNavBtn.addEventListener("click", function () {
-                        nav.style.top = "-100%"; // إخفاء الناف بار
-                  });
-
-                  navLinks.forEach(link => {
-                        link.addEventListener("click", function () {
-                              nav.style.top = "-100%";
+                  if (openNav) { // التأكد من وجود زر الفتح
+                        openNav.addEventListener("click", function () {
+                              subheader.style.top = "0%"; // إظهار القائمة
                         });
-                  });
+                  }
             });
+
 
             var swiper = new Swiper(".mySwiper", {
+                  autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                  },
                   pagination: {
                         el: ".swiper-pagination",
+                        clickable: true,
                   },
+                  loop: true,
             });
+
 
             document.addEventListener("DOMContentLoaded", function () {
                   document.getElementById("date").textContent = new Date().getFullYear();
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                  const links = document.querySelectorAll(".link");
+
+                  document.addEventListener("click", function (event) {
+                        let isInsideLink = false;
+
+                        links.forEach(link => {
+                              if (link.contains(event.target)) {
+                                    isInsideLink = true;
+                                    link.classList.toggle("active");
+                              } else {
+                                    link.classList.remove("active");
+                              }
+                        });
+
+                        if (!isInsideLink) {
+                              links.forEach(link => link.classList.remove("active"));
+                        }
+                  });
             });
       </script>
 </body>
