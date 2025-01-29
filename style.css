@@ -665,7 +665,7 @@ input[type="number"] {
                               height: 100vh;
                               background-color: #000;
                               transition: var(--transition-3);
-
+                              z-index: 100;
                               .close-nav {
                                     display: block;
                               }
