@@ -550,6 +550,7 @@ input[type="number"] {
       background-color: #000;
       color: var(--w-color);
       overflow: hidden;
+      position: relative;
 
       .container {
             padding-inline: 15px;
@@ -666,6 +667,7 @@ input[type="number"] {
                               background-color: #000;
                               transition: var(--transition-3);
                               z-index: 100;
+
                               .close-nav {
                                     display: block;
                               }
@@ -682,8 +684,96 @@ input[type="number"] {
             }
       }
 
+      .subheader {
+            position: absolute;
+            width: 100%;
+            z-index: 2;
+            top: 107px;
+            left: 50%;
+            transform: translate(-50%);
+            .container {
+                  display: flex;
+                  justify-content: center;
+                  flex-wrap: wrap;
+                  gap: 15px;
+
+                  a {
+                        color: var(--w-color);
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        border-bottom: 2px solid transparent;
+                        transition: var(--transition-3);
+                        &:hover {
+                              border-color:  #fecd00;
+                        }
+                  }
+
+                  ul {
+                        border-top: 2px solid #fecd00;
+                        padding: 10px;
+                        background-color: #0000008b;
+                        width: 150px;
+                        display: flex;
+                        gap: 15px;
+                        flex-direction: column;
+                        display: none;
+                        transition: var(--transition-3);
+                        li a {
+                              transition: var(--transition);
+                              &:hover {
+                                    color: #fecd00;
+                              }
+                        }
+                  }
+
+                  .link a:hover + ul,
+                        ul:hover {
+                              display: flex;
+                  }
+            }
+      }
+
       .slides {
-            height: calc(100vh - 107px);
+            .slides-content {
+                  height: calc(100vh - 107px);
+                  .swiper.mySwiper {
+                        height: 100%;
+                        .swiper-wrapper {
+                              .swiper-slide {
+                                    position: relative;
+                                    img {
+                                          width: 100%;
+                                          object-fit: cover;
+                                          height: 100%;
+                                    }
+
+                                    a {
+                                          position: absolute;
+                                          bottom: 15px;
+                                          right: 15px;
+                                          color: #000;
+                                          background-color: #fecd00;
+                                          padding: 10px 15px;
+                                          font-weight: 700;
+                                          z-index: 3;
+                                    }
+
+                                    &::after {
+                                          content: "";
+                                          position: absolute;
+                                          top: 0;
+                                          left: 0;
+                                          width: 100%;
+                                          height: 100%;
+                                          background-color: rgba(0, 0, 0, 0.532);
+                                          z-index: 1;
+                                    }
+                              }
+                        }
+                  }
+            }
+
       }
 
       .events {
@@ -897,6 +987,7 @@ input[type="number"] {
 
                   li a {
                         color: var(--w-color);
+
                         i {
                               font-size: 22px;
                         }
@@ -910,7 +1001,7 @@ input[type="number"] {
                         text-align: center;
                         margin-bottom: 30px;
                   }
-                  
+
             }
       }
 }
