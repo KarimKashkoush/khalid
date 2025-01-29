@@ -73,7 +73,7 @@
 
             <section class="subheader">
                   <button class="close-nav">
-                        <i class="fa-regular fa-circle-xmark"></i>
+                        <i class="fa-solid fa-x"></i>
                   </button>
                   <section class="container">
                         <section class="link">
@@ -112,7 +112,7 @@
                               <a href="#">عرض جراند جياة الكويت</a>
                         </section>
 
-                        <section>
+                        <section class="twoLinks">
                               <section class="link">
                                     <a href="#">معلومات عنا</a>
                               </section>
@@ -133,13 +133,11 @@
                         <div class="swiper mySwiper">
                               <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                          <img src="WhatsApp Image 2025-01-29 at 3.12.24 PM.jpeg"
-                                                alt="image">
+                                          <img src="WhatsApp Image 2025-01-29 at 3.12.24 PM.jpeg" alt="image">
                                           <a href="#">التذاكر</a>
                                     </div>
                                     <div class="swiper-slide">
-                                          <img src="WhatsApp Image 2025-01-29 at 3.12.30 PM.jpeg"
-                                                alt="image">
+                                          <img src="WhatsApp Image 2025-01-29 at 3.12.30 PM.jpeg" alt="image">
                                           <a href="#">التذاكر</a>
                                     </div>
                               </div>
@@ -333,23 +331,21 @@
 
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
       <script>
-
             document.addEventListener("DOMContentLoaded", function () {
                   const subheader = document.querySelector(".subheader");
                   const closeNav = document.querySelector(".close-nav");
                   const openNav = document.querySelector(".nav-button");
 
                   closeNav.addEventListener("click", function () {
-                        subheader.style.top = "-130%"; // إخفاء القائمة
+                        subheader.style.top = "-100%";
                   });
 
-                  if (openNav) { // التأكد من وجود زر الفتح
+                  if (openNav) {
                         openNav.addEventListener("click", function () {
-                              subheader.style.top = "0%"; // إظهار القائمة
+                              subheader.style.top = "0%";
                         });
                   }
             });
-
 
             var swiper = new Swiper(".mySwiper", {
                   autoplay: {

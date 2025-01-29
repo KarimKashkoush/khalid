@@ -325,12 +325,12 @@
                   const openNav = document.querySelector(".nav-button");
 
                   closeNav.addEventListener("click", function () {
-                        subheader.style.top = "-130%"; // إخفاء القائمة
+                        subheader.style.top = "-100%";
                   });
 
-                  if (openNav) { // التأكد من وجود زر الفتح
+                  if (openNav) {
                         openNav.addEventListener("click", function () {
-                              subheader.style.top = "0%"; // إظهار القائمة
+                              subheader.style.top = "0%";
                         });
                   }
             });
