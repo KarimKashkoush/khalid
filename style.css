@@ -1095,9 +1095,6 @@ input[type="number"] {
             background-color: var(--main-color);
       }
 
-      .subheader {
-            background-color: var(--main-color);
-      }
 
       .main {
             padding-block: var(--p-100);
