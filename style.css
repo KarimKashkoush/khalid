@@ -6,6 +6,7 @@
       --transition: 0.3s;
       --border: 1px solid #00000096;
       --text-color: rgb(73, 80, 87);
+      --transition-3: 0.3s;
 }
 
 * {
@@ -280,6 +281,7 @@ input[type="number"] {
 /* Start Form-Details */
 .form-details {
       margin: 20px 20px 50px 20px;
+
       .container {
             box-shadow: var(--box-shadow);
             border-radius: 10px;
@@ -504,6 +506,7 @@ input[type="number"] {
                         label {
                               display: inline;
                               margin-bottom: 5px;
+
                               img {
                                     width: 70px;
                                     margin-right: 10px;
@@ -539,3 +542,88 @@ input[type="number"] {
 }
 
 /* End Payment-timer */
+
+/* Start Main-Page */
+.main-page {
+      background-color: #000;
+
+      .container {
+            padding-inline: 15px;
+            margin-inline: auto;
+      }
+
+      @media (min-width: 786px) {
+            .container {
+                  max-width: 750px;
+            }
+      }
+
+      @media (min-width: 991px) {
+            .container {
+                  max-width: 950px;
+            }
+      }
+
+      @media (min-width: 1200px) {
+            .container {
+                  max-width: 1150px;
+            }
+      }
+
+      header {
+            background-color: transparent;
+
+            .container {
+                  color: var(--w-color);
+                  display: flex;
+                  align-items: center;
+
+                  .logo {
+                        img {
+                              width: 150px;
+                        }
+                  }
+
+                  nav {
+                        ul {
+                              display: flex;
+                              align-items: center;
+                              gap: 15px;
+
+                              li a {
+                                    color: var(--w-color);
+                                    font-size: 18px;
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 3px;
+                                    transition: var(--transition-3);
+
+                                    &:hover {
+                                          transform: scale(1.2);
+                                    }
+
+                                    i {
+                                          font-size: 20px;
+                                    }
+                              }
+                        }
+                  }
+
+                  .nav-button {
+                        display: none;
+                  }
+
+                  @media (max-width: 768px) {
+                        .nav-button {
+                              display: block;
+                        }
+
+                        nav {
+                              display: none;
+                        }
+                  }
+            }
+      }
+}
+
+/* End Main-Page */
