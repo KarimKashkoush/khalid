@@ -67,7 +67,7 @@
                                           <td>
                                                 <div class="quantity-control">
                                                       <button type="button" class="decrement">-</button>
-                                                      <input type="number" min="0" value="0">
+                                                      <input type="number" min="0" name="daimond" value="0">
                                                       <button type="button" class="increment">+</button>
                                                 </div>
                                           </td>
@@ -79,7 +79,7 @@
                                           <td>
                                                 <div class="quantity-control">
                                                       <button type="button" class="decrement">-</button>
-                                                      <input type="number" min="0" value="0">
+                                                      <input type="number" min="0" name="platinum" value="0">
                                                       <button type="button" class="increment">+</button>
                                                 </div>
                                           </td>
@@ -91,7 +91,7 @@
                                           <td>
                                                 <div class="quantity-control">
                                                       <button type="button" class="decrement">-</button>
-                                                      <input type="number" min="0" value="0">
+                                                      <input type="number" min="0" name="gold" value="0">
                                                       <button type="button" class="increment">+</button>
                                                 </div>
                                           </td>
@@ -103,7 +103,7 @@
                                           <td>
                                                 <div class="quantity-control">
                                                       <button type="button" class="decrement">-</button>
-                                                      <input type="number" min="0" value="0">
+                                                      <input type="number" min="0" name="silver" value="0">
                                                       <button type="button" class="increment">+</button>
                                                 </div>
                                           </td>
@@ -115,7 +115,7 @@
                                           <td>
                                                 <div class="quantity-control">
                                                       <button type="button" class="decrement">-</button>
-                                                      <input type="number" min="0" value="0">
+                                                      <input type="number" min="0" name="bronze" value="0">
                                                       <button type="button" class="increment">+</button>
                                                 </div>
                                           </td>
@@ -127,7 +127,7 @@
                                           <td>
                                                 <div class="quantity-control">
                                                       <button type="button" class="decrement">-</button>
-                                                      <input type="number" min="0" value="0">
+                                                      <input type="number" min="0" name="royal" value="0">
                                                       <button type="button" class="increment">+</button>
                                                 </div>
                                           </td>
@@ -140,7 +140,7 @@
                                           <td>
                                                 <div class="quantity-control">
                                                       <button type="button" class="decrement">-</button>
-                                                      <input type="number" min="0" value="0">
+                                                      <input type="number" min="0" name="special" value="0">
                                                       <button type="button" class="increment">+</button>
                                                 </div>
                                           </td>
@@ -156,7 +156,33 @@
             </section>
       </section>
       <!-- End Main Section -->
-      <script>
+<script>
+      document.addEventListener("DOMContentLoaded", function () {
+            const inputs = document.querySelectorAll('input[type="number"]');
+            const bookButton = document.querySelector('button[type="submit"]');
+
+            function getPrice(input) {
+              
+                  const row = input.closest("tr"); 
+                  const priceText = row.querySelector("td:nth-child(3)").textContent.trim(); 
+                  
+
+                  const price = parseFloat(priceText.replace(/[^\d.]/g, '')); 
+                  return isNaN(price) ? 0 : price;
+            }
+
+            function updateTotalPrice() {
+                  let totalPrice = 0;
+
+                  inputs.forEach(input => {
+                        const quantity = parseInt(input.value || 0);
+                        const price = getPrice(input);
+                        totalPrice += quantity * price;
+                  });
+
+                  bookButton.textContent = `احجز الآن (${totalPrice} د.ك)`;
+            }
+
             document.querySelectorAll('.quantity-control').forEach(control => {
                   const input = control.querySelector('input');
                   const increment = control.querySelector('.increment');
@@ -164,17 +190,20 @@
 
                   increment.addEventListener('click', () => {
                         input.value = parseInt(input.value || 0) + 1;
+                        updateTotalPrice();
                   });
 
                   decrement.addEventListener('click', () => {
                         if (parseInt(input.value || 0) > 0) {
                               input.value = parseInt(input.value || 0) - 1;
+                              updateTotalPrice();
                         }
                   });
+
+                  input.addEventListener("input", updateTotalPrice);
             });
 
             document.querySelector('form').addEventListener('submit', function (event) {
-                  const inputs = document.querySelectorAll('input[type="number"]');
                   let hasValidTicket = false;
 
                   inputs.forEach(input => {
@@ -184,11 +213,14 @@
                   });
 
                   if (!hasValidTicket) {
-                        event.preventDefault(); 
+                        event.preventDefault();
                         alert('من فضلك اختر على الأقل تذكرة واحدة قبل الحجز.');
                   }
             });
-      </script>
+
+            updateTotalPrice(); 
+      });
+</script>
 </body>
 
 
