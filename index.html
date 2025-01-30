@@ -148,7 +148,7 @@
                               </tbody>
                         </table>
 
-                        <button>احجز الأن</button>
+                        <button type="submit">احجز الأن</button>
                   </form>
             </section>
             <section class="image">
@@ -156,71 +156,71 @@
             </section>
       </section>
       <!-- End Main Section -->
-<script>
-      document.addEventListener("DOMContentLoaded", function () {
-            const inputs = document.querySelectorAll('input[type="number"]');
-            const bookButton = document.querySelector('button[type="submit"]');
+      <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                  const inputs = document.querySelectorAll('input[type="number"]');
+                  const bookButton = document.querySelector('button[type="submit"]');
 
-            function getPrice(input) {
-              
-                  const row = input.closest("tr"); 
-                  const priceText = row.querySelector("td:nth-child(3)").textContent.trim(); 
-                  
+                  function getPrice(input) {
 
-                  const price = parseFloat(priceText.replace(/[^\d.]/g, '')); 
-                  return isNaN(price) ? 0 : price;
-            }
+                        const row = input.closest("tr");
+                        const priceText = row.querySelector("td:nth-child(3)").textContent.trim();
 
-            function updateTotalPrice() {
-                  let totalPrice = 0;
 
-                  inputs.forEach(input => {
-                        const quantity = parseInt(input.value || 0);
-                        const price = getPrice(input);
-                        totalPrice += quantity * price;
-                  });
-
-                  bookButton.textContent = `احجز الآن (${totalPrice} د.ك)`;
-            }
-
-            document.querySelectorAll('.quantity-control').forEach(control => {
-                  const input = control.querySelector('input');
-                  const increment = control.querySelector('.increment');
-                  const decrement = control.querySelector('.decrement');
-
-                  increment.addEventListener('click', () => {
-                        input.value = parseInt(input.value || 0) + 1;
-                        updateTotalPrice();
-                  });
-
-                  decrement.addEventListener('click', () => {
-                        if (parseInt(input.value || 0) > 0) {
-                              input.value = parseInt(input.value || 0) - 1;
-                              updateTotalPrice();
-                        }
-                  });
-
-                  input.addEventListener("input", updateTotalPrice);
-            });
-
-            document.querySelector('form').addEventListener('submit', function (event) {
-                  let hasValidTicket = false;
-
-                  inputs.forEach(input => {
-                        if (parseInt(input.value) > 0) {
-                              hasValidTicket = true;
-                        }
-                  });
-
-                  if (!hasValidTicket) {
-                        event.preventDefault();
-                        alert('من فضلك اختر على الأقل تذكرة واحدة قبل الحجز.');
+                        const price = parseFloat(priceText.replace(/[^\d.]/g, ''));
+                        return isNaN(price) ? 0 : price;
                   }
-            });
 
-            updateTotalPrice(); 
-      });
-</script>
+                  function updateTotalPrice() {
+                        let totalPrice = 0;
+
+                        inputs.forEach(input => {
+                              const quantity = parseInt(input.value || 0);
+                              const price = getPrice(input);
+                              totalPrice += quantity * price;
+                        });
+
+                        bookButton.textContent = `احجز الآن (${totalPrice} د.ك)`;
+                  }
+
+                  document.querySelectorAll('.quantity-control').forEach(control => {
+                        const input = control.querySelector('input');
+                        const increment = control.querySelector('.increment');
+                        const decrement = control.querySelector('.decrement');
+
+                        increment.addEventListener('click', () => {
+                              input.value = parseInt(input.value || 0) + 1;
+                              updateTotalPrice();
+                        });
+
+                        decrement.addEventListener('click', () => {
+                              if (parseInt(input.value || 0) > 0) {
+                                    input.value = parseInt(input.value || 0) - 1;
+                                    updateTotalPrice();
+                              }
+                        });
+
+                        input.addEventListener("input", updateTotalPrice);
+                  });
+
+                  document.querySelector('form').addEventListener('submit', function (event) {
+                        let hasValidTicket = false;
+
+                        inputs.forEach(input => {
+                              if (parseInt(input.value) > 0) {
+                                    hasValidTicket = true;
+                              }
+                        });
+
+                        if (!hasValidTicket) {
+                              event.preventDefault();
+                              alert('من فضلك اختر على الأقل تذكرة واحدة قبل الحجز.');
+                        }
+                  });
+
+                  updateTotalPrice();
+            });
+      </script>
 </body>
 
 
