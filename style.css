@@ -903,13 +903,9 @@ input[type="number"] {
                                     outline: none;
                                     cursor: pointer;
                                     z-index: 2;
-
-                                    a {
-                                          display: block;
-                                          color: var(--w-color);
-                                          font-size: 16px;
-                                          padding: 10px 15px;
-                                    }
+                                    color: var(--w-color);
+                                    font-size: 16px;
+                                    padding: 10px 15px;
                               }
 
                               &::before,
