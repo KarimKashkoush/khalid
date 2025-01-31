@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 
 <head>
       <meta charset="UTF-8">
@@ -10,6 +10,8 @@
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
       <!-- Google Fonts -->
       <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+      <!-- intlTelInput CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.1/build/css/intlTelInput.css">
 
 </head>
 
@@ -45,7 +47,6 @@
       </section>
       <!-- End Timer -->
 
-
       <!-- Start Personal-Details -->
       <section class="personal-details">
             <section class="container">
@@ -63,8 +64,7 @@
                   <form>
                         <section class="input-control">
                               <label for="phone">رقم الهاتف:</label>
-                              <input dir="auto" type="tel" id="phone" name="phone" placeholder="أدخل رقم الهاتف"
-                                    required>
+                              <input dir="auto" type="tel" id="phone" name="phone" placeholder="أدخل رقم الهاتف" required>
                         </section>
 
                         <section class="input-control">
@@ -78,46 +78,6 @@
                                     placeholder="أدخل البريد الإلكتروني" required>
                         </section>
 
-                        <section class="conditions">
-                              <p>الشروط والاحكام</p>
-                              <span>يرجي قراءة شروط وأحكام المنظم والموافقة عليها</span>
-
-                              <section class="all-condition">
-                                    <p>سياسات دخول الفعالية</p>
-                                    <ul>
-                                          <li>يُسمح بالدخول إلى الأرينا ما بين 60-90 دقيقة قبل وقت بدء العرض.</li>
-                                          <li>لا يُسمح بدخول عربات الأطفال إلى القاعة ويجب تركها في مناطق محددة عند
-                                                المداخل.</li>
-                                          <li>جميع المتعلقات الشخصية هي مسئولية كاملة على حاملها تمامًا دون أي مسؤولية
-                                                على الأرينا كويت.</li>
-                                          <li>يُسمح فقط للأعمار من 10 أعوام فما فوق بدخول الفعالية.</li>
-                                          <li>لا يسمح بدخول أي زائر دون ال 16 عامًا إلا بصحبة شخص بالغ يزيد عمره عن 18
-                                                عامًا</li>
-                                          <li>لا يُسمح بكاميرات احترافية أو مسجلات صوت أو فيديو</li>
-                                          <li>لا يسمح بدخول الحقائب التي يزيد حجمها عن 30 × 30 × 15 سم إلى القاعة. تتوفر
-                                                أماكن تخزين الأغراض في منطقة شباك التذاكر في الطابق M2.</li>
-                                          <li>سيتم فحص جميع التذاكر الإلكترونية في جميع نقاط الدخول. يرجى التأكد من
-                                                تحميل التذاكر على الهواتف الشخصية.</li>
-                                          <li>يتم التشجيع على دفع النقود عبر البطاقات البنكية في جميع أنحاء الأرينا
-                                                كويت.</li>
-                                          <li>ممنوع الدخول مرة أخرى: تمنح التذكرة الدخول لمرة واحدة إلى الأرينا كويت،
-                                                دون أي حق في الدخول مرة أخرى.</li>
-                                          <li>لا يُسمح بدخول أي مأكولات أو مشروبات من خارج الأرينا كويت. ويسمح فقط
-                                                بتناول المأكولات والمشروبات التي يتم شراؤها من نقاط البيع داخل الأرينا
-                                                كويت.</li>
-                                          <li>التدخين غير مسموح به في المبنى بما في ذلك السجائر الإلكترونية، ولا يسمح
-                                                أيضا باستخدام الولاعات وأعواد الثقاب داخل الأرينا كويت.</li>
-                                          <li>على الزائرين الالتزام بالجلوس دائما أثناء العرض، ولايسمح بالوقوف أو الرقص.
-                                          </li>
-                                    </ul>
-                              </section>
-
-                              <section class="terms-conditions-checkbox">
-                                    <input type="checkbox" id="terms-conditions" name="terms-conditions" required>
-                                    <label for="terms-conditions">وافق على الشروط والاحكام</label>
-                              </section>
-                        </section>
-
                         <button>
                               الدفع
                               <i class="fa-solid fa-chevron-left"></i>
@@ -127,9 +87,25 @@
       </section>
       <!-- End Form-Details -->
 
+      <!-- intlTelInput JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
       <script>
-            let countdownTime = 10 * 60;
+            const input = document.querySelector("#phone");
+            const iti = window.intlTelInput(input, {
+                  initialCountry: "kw",  // يبدأ بالكويت 🇰🇼
+                  separateDialCode: true, // عرض الكود الدولي منفصلًا عن الرقم
+                  showFlags: true, // إظهار الأعلام
+                  preferredCountries: ["kw", "sa", "ae", "eg"], // دول مفضلة في الأعلى
+                  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.min.js"
+            });
 
+            // عند تغيير الرقم، اطبع النسخة الكاملة منه مع الكود الدولي
+            input.addEventListener("change", function () {
+                  console.log(iti.getNumber()); // يعرض الرقم كاملاً بالكود الدولي
+            });
+
+            // عداد تنازلي
+            let countdownTime = 10 * 60;
             const countdownElement = document.getElementById("countdown");
 
             const timerInterval = setInterval(function () {
