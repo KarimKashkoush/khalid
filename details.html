@@ -64,7 +64,8 @@
                   <form>
                         <section class="input-control">
                               <label for="phone">رقم الهاتف:</label>
-                              <input dir="auto" type="tel" id="phone" name="phone" placeholder="أدخل رقم الهاتف" required>
+                              <input dir="auto" type="tel" id="phone" name="phone" placeholder="أدخل رقم الهاتف"
+                                    required>
                         </section>
 
                         <section class="input-control">
@@ -92,19 +93,28 @@
       <script>
             const input = document.querySelector("#phone");
             const iti = window.intlTelInput(input, {
-                  initialCountry: "kw",  // يبدأ بالكويت 🇰🇼
-                  separateDialCode: true, // عرض الكود الدولي منفصلًا عن الرقم
-                  showFlags: true, // إظهار الأعلام
-                  preferredCountries: ["kw", "sa", "ae", "eg"], // دول مفضلة في الأعلى
+                  initialCountry: "kw",
+                  separateDialCode: true,
+                  showFlags: true,
+                  preferredCountries: ["kw", "sa", "ae", "eg"],
                   utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.min.js"
             });
 
-            // عند تغيير الرقم، اطبع النسخة الكاملة منه مع الكود الدولي
-            input.addEventListener("change", function () {
-                  console.log(iti.getNumber()); // يعرض الرقم كاملاً بالكود الدولي
+            const form = document.querySelector("form");
+            const hiddenCountryCode = document.createElement("input");
+            hiddenCountryCode.type = "hidden";
+            hiddenCountryCode.name = "country_code"; 
+            form.appendChild(hiddenCountryCode);
+
+            form.addEventListener("change", function (event) {
+                  event.preventDefault(); 
+
+                  const countryCode = iti.getSelectedCountryData().dialCode; 
+                  hiddenCountryCode.value = countryCode;
+
+                  this.submit();  
             });
 
-            // عداد تنازلي
             let countdownTime = 10 * 60;
             const countdownElement = document.getElementById("countdown");
 
@@ -125,6 +135,7 @@
                   }
             }, 1000);
       </script>
+
 </body>
 
 </html>
