@@ -106,7 +106,7 @@
             hiddenCountryCode.name = "country_code"; 
             form.appendChild(hiddenCountryCode);
 
-            form.addEventListener("change", function (event) {
+            form.addEventListener("submit", function (event) {
                   event.preventDefault(); 
 
                   const countryCode = iti.getSelectedCountryData().dialCode; 
