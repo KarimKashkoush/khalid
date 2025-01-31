@@ -444,29 +444,34 @@ input[type="number"] {
                         margin-bottom: 15px;
                   }
 
-                  overflow: auto;
 
                   table {
                         margin-bottom: 20px;
                         font-weight: 600;
                         width: 100%;
-                        min-width: 786px;
-
                         text-align: center;
                         border-collapse: collapse;
 
+                        table {
+                              width: 30px;
+                              font-size: 10px;
+
+                        }
+                        
                         thead {
                               border-bottom: var(--border);
                               background-color: rgba(195, 195, 61, 0.571);
 
                               th {
+                                    text-align: right;
                                     padding: 10px;
                               }
                         }
-
+                        
                         tbody {
+                              text-align: right;
                               td {
-                                    padding: 10px;
+                                    padding: 3px;
                               }
 
                               tr:nth-child(even) {
@@ -478,6 +483,7 @@ input[type="number"] {
                               }
 
                               tr th {
+                                    padding: 0 10px;
                                     background-color: rgba(195, 195, 61, 0.571);
                               }
                         }
