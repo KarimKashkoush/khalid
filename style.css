@@ -457,7 +457,7 @@ input[type="number"] {
                               font-size: 10px;
 
                         }
-                        
+
                         thead {
                               border-bottom: var(--border);
                               background-color: rgba(195, 195, 61, 0.571);
@@ -467,9 +467,10 @@ input[type="number"] {
                                     padding: 10px;
                               }
                         }
-                        
+
                         tbody {
                               text-align: right;
+
                               td {
                                     padding: 3px;
                               }
@@ -779,10 +780,12 @@ input[type="number"] {
       @media (max-width: 1200px) {
             .subheader {
                   top: -100%;
+                  left: 0;
                   width: 100%;
                   min-height: 100vh;
                   background-color: #000000;
                   z-index: 10;
+                  transform: translate(0);
 
                   .close-nav {
                         display: block;
@@ -793,6 +796,7 @@ input[type="number"] {
                         cursor: pointer;
                         top: 25px;
                         left: 25px;
+                        z-index: 100;
 
                         i {
                               font-size: 45px;
