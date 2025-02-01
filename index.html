@@ -13,6 +13,14 @@
 </head>
 
 <body>
+      <div class="loader">
+            <section class="top"></section>
+            <section class="spans">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </section>
+
+            <section class="footer"></section>
+      </div>
       <!-- Start Header -->
       <header>
             <section class="container">
@@ -219,6 +227,13 @@
                   });
 
                   updateTotalPrice();
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                  document.querySelector(".loader")
+                  setTimeout(() => {
+                        document.querySelector(".loader").style.display = "none";
+                  }, 3000);
             });
       </script>
 </body>

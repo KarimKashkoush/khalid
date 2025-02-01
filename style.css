@@ -1351,3 +1351,80 @@ input[type="number"] {
 
 
 /* End Main-Page */
+
+
+/* Loader */
+
+.loader {
+      padding-inline: 15px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      z-index: 10000;
+
+      .top {
+            width: 260px;
+            max-width: 100%;
+            height: 90px;
+            background-color: #efefef;
+            border-radius: 10px;
+      }
+
+      .spans {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            width: 260px;
+
+            span {
+                  display: block;
+                  width: 22px;
+                  height: 22px;
+                  border-radius: 50%;
+                  background-color: #efefef;
+            }
+      }
+
+      .footer {
+            width: 400px;
+            max-width: 100%;
+            height: 40px;
+            background-color: #efefef;
+            border-radius: 10px;
+            border-radius: 100px;
+            position: absolute;
+            bottom: 25px;
+      }
+}
+
+.loader::after {
+      content: '';
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 20px;
+      height: 200%;
+      background-color: #ffffff83;
+      animation: loader 3s infinite ease;
+}
+
+@keyframes loader {
+      0% {
+            left: 0;
+      }
+
+      100% {
+            left: 100%;
+      }
+}
+/* Loader */
